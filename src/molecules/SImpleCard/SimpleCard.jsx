@@ -1,15 +1,12 @@
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+import { Card, Typography } from "@mui/material";
+import ImageCard from "../../atoms/ImageCard/ImageCard";
+
 import './styles.css';;
 
 function SimpleCard({ title, img }) {
     return (
         <Card className="card">
-            <CardMedia 
-                component="img"
-                sx={{ width: 32 }}
-                image={img}
-                alt={img}
-            />
+            <ImageCard imgDir={img} size={32} />
             <Typography variant="body1">{title}</Typography>
         </Card>
     );

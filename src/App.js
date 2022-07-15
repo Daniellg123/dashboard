@@ -2,12 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 
 
-import SimpleCard from './molecules/SImpleCard/SimpleCard';
+import SecondaryCard from './molecules/SecondaryCard/SecondaryCard';
 
 function App() {
   return (
     <div className="App">
-      <SimpleCard title='Desarrollo' img='./img/logo1.png' />
+      <SecondaryCard 
+        title='Diseño UX' 
+        img='./img/logo1.png' 
+        units={120} 
+        users={300}
+        name='Nombre'
+        position='Cargo'        />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

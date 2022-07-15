@@ -1,0 +1,31 @@
+.card {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+
+    position: absolute;
+    width: 387px;
+    height: 140px;
+
+    /* Background */
+    background: #FAFCFF;
+
+    /* Orange/50 Primary */
+    border: 1px solid #ED5E2E;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.infoP {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
