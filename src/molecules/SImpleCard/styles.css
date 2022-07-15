@@ -1,0 +1,21 @@
+.card {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+
+    position: absolute;
+    width: 156px;
+    height: 56px;
+
+    /* Background */
+    background: #FAFCFF;
+
+    /* Gray/50 */
+    border: 1px solid #ABB0B9;
+}

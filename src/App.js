@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+import SimpleCard from './molecules/SImpleCard/SimpleCard';
+
 function App() {
   return (
     <div className="App">
+      <SimpleCard title='Desarrollo' img='./img/logo1.png' />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
