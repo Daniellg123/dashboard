@@ -9,11 +9,12 @@ function App() {
     <div className="App">
       <SecondaryCard 
         title='Diseño UX' 
-        img='./img/logo1.png' 
+        img='./img/OrganizationChart.png' 
         units={120} 
         users={300}
         name='Nombre'
-        position='Cargo'        />
+        position='Cargo'
+        selected={false}        />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
