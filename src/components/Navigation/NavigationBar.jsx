@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+  import { styled } from '@mui/material/styles';
 import {
   Box,
   Drawer as MuiDrawer,
@@ -15,8 +15,7 @@ import {
   ListItemIcon,
   ListItemText,
   Avatar,
-  Button,
-  Menu,
+  Button
 } from '@mui/material';
 
 import ImageCard from '../../atoms/ImageCard/ImageCard';
@@ -29,8 +28,11 @@ import {
   Globe,
   Storefront,
   BellSimple,
-  SidebarSimple
+  SidebarSimple,
+  Flag
 } from 'phosphor-react';
+
+import MenuSettings from './MenuSettings';
 
 const imageLogo = './img/Logo.png';
 
@@ -101,9 +103,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }));
 
-export default function MiniDrawer() {
+function NavigationBar() {
   const [open, setOpen] = React.useState(false);
   const [openMenu, setOpenMenu] = React.useState(false);
+  const [openMenuSettings, setOpenMenuSettings] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -118,6 +121,13 @@ export default function MiniDrawer() {
   }
   const handleCloseMenu = () => {
     setOpenMenu(false);
+  }
+
+  const handleOpenMenuSettings = () => {
+    setOpenMenuSettings(true);
+  }
+  const handleCloseMenuSettings = () => {
+    setOpenMenuSettings(false);
   }
 
   return (
@@ -221,7 +231,7 @@ export default function MiniDrawer() {
           ''
         }
 
-        <Box sx={{  }}>
+        <Box>
           <Divider />
           <List>
             {['Org. Structure', 'Workspace'].map((text, index) => (
@@ -246,10 +256,39 @@ export default function MiniDrawer() {
                 </ListItemButton>
               </ListItem>
             ))}
+            <Button
+              sx={{ width: 1 }}
+              onClick={openMenu ? handleCloseMenu : handleOpenMenu}
+              startIcon={<Flag size={20} />}
+              endIcon={<CaretDown size={12} />}
+            >
+              {open ? <Typography variant='button'>Business Unit</Typography> : ''}
+            </Button>
+            <Divider />
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+              onClick={handleOpenMenuSettings}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <Globe size={18} />
+              </ListItemIcon>
+              <ListItemText primary='Settings' sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
           </List>
         </Box>
       </Drawer>
 
+      <MenuSettings openMenu={openMenuSettings} handleClose={handleCloseMenuSettings} drawerWidth={drawerWidth} openDrawer={open}/>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
@@ -325,3 +364,5 @@ export default function MiniDrawer() {
     </Box>
   );
 }
+
+export default NavigationBar;
