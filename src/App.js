@@ -1,11 +1,11 @@
 import './App.css';
 
-import SlideBar from './components/SlideBar/SlideBar';
+import Navigation from './components/Navigation/SlidebarAppbar';
 
 
 function App() {
   return (
-    <SlideBar />
+    <Navigation />
   );
 }
 

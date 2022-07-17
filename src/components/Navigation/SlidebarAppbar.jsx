@@ -15,11 +15,22 @@ import {
   ListItemIcon,
   ListItemText,
   Avatar,
+  Button,
+  Menu,
 } from '@mui/material';
 
 import ImageCard from '../../atoms/ImageCard/ImageCard';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
-import { CaretDoubleLeft, CaretDoubleRight, Globe, Storefront,  BellSimple} from 'phosphor-react';
+import {
+  CaretDoubleLeft,
+  CaretDoubleRight,
+  CaretDown,
+  CaretUp,
+  Globe,
+  Storefront,
+  BellSimple,
+  SidebarSimple
+} from 'phosphor-react';
 
 const imageLogo = './img/Logo.png';
 
@@ -92,6 +103,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -101,9 +113,17 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const handleOpenMenu = () => {
+    setOpenMenu(true);
+  }
+  const handleCloseMenu = () => {
+    setOpenMenu(false);
+  }
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -118,6 +138,7 @@ export default function MiniDrawer() {
           </Box>
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
@@ -129,9 +150,11 @@ export default function MiniDrawer() {
             }
           </IconButton>
         </DrawerHeader>
+
         <Divider />
+
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Dashboard', 'Tasks', 'Calendar', 'Reports'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -154,32 +177,79 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
+
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+
+        <Button
+          onClick={openMenu ? handleCloseMenu : handleOpenMenu}
+          startIcon={<SidebarSimple size={20} color="#ed5e2e" />}
+          endIcon={
+            open ?
+              openMenu ? <CaretUp size={12} /> : <CaretDown size={12} />
+              :
+              ''
+          }
+        >
+          {open ? <Typography variant='button'>Document Control</Typography> : ''}
+        </Button>
+        {openMenu ? (
+          <>
+            {['Document', 'Document Set', 'Request', 'Printed Copies', 'Admin Options', 'Context Fields', 'Print Profiles', 'Workflows', 'Obsolete Reasons', 'Characteristics'].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: openMenu ? 'initial' : 'center',
+                    px: 2.5,
                   }}
                 >
-                  <Globe size={18} />
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: openMenu ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Globe size={18} />
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </>)
+          :
+          ''
+        }
+
+        <Box sx={{  }}>
+          <Divider />
+          <List>
+            {['Org. Structure', 'Workspace'].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Globe size={18} />
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </Drawer>
+
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography paragraph>
@@ -255,20 +325,3 @@ export default function MiniDrawer() {
     </Box>
   );
 }
-
-
-/* 
-<IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <ImageCard imgDir={imageLogo} size={25} />
-            <CaretDoubleRight size={18} />
-          </IconButton>
-*/
