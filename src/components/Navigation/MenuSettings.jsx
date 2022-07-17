@@ -4,6 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { useTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
+import { useNavigate } from "react-router-dom";
+
 import { 
     Briefcase, 
     Buildings, 
@@ -16,6 +18,7 @@ import {
 
 function MenuSettings({ openMenu, handleClose, drawerWidth, openDrawer }) {
     const theme = useTheme();
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -40,7 +43,7 @@ function MenuSettings({ openMenu, handleClose, drawerWidth, openDrawer }) {
                     <Buildings size={18} />
                     <Typography variant='body1'>Business Units</Typography>
                 </MenuItem>
-                <MenuItem onClick={()=>{}}>
+                <MenuItem onClick={() => {navigate('/OrganizationalUnits')}}>
                     <Flag size={18} />
                     <Typography variant='body1'>Organizational Units</Typography>
                 </MenuItem>

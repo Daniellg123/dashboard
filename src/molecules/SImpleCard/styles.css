@@ -1,4 +1,4 @@
-.card {
+.simpleCard {
     box-sizing: border-box;
 
     /* Auto layout */
@@ -9,7 +9,7 @@
     padding: 12px;
     gap: 10px;
 
-    position: absolute;
+    position: static;
     width: 156px;
     height: 56px;
 

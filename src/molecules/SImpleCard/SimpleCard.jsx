@@ -5,7 +5,7 @@ import './styles.css';;
 
 function SimpleCard({ title, img }) {
     return (
-        <Card className="card">
+        <Card className="simpleCard">
             <ImageCard imgDir={img} size={32} />
             <Typography variant="body1">{title}</Typography>
         </Card>

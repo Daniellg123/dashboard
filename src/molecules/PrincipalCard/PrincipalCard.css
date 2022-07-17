@@ -7,7 +7,7 @@
     justify-content: center;
     gap: 20px;
 
-    position: absolute;
+    position: static;
     width: 195px;
     height: 160px;
 
