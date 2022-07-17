@@ -1,4 +1,4 @@
-.card {
+.card1 {
     box-sizing: border-box;
 
     /* Auto layout */
@@ -18,14 +18,38 @@
     border: 1px solid #ED5E2E;
 }
 
+.card2 {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+
+    position: absolute;
+    width: 195px;
+    height: 140px;
+
+    /* Background */
+    background: #FAFCFF;
+
+    /* Gray/50 */
+    border: 1px solid #ABB0B9;
+}
+
 .content {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
 }
 
-.infoP {
+.c {
+    display: block;
+    width: 50%;
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
 }
