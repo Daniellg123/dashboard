@@ -1,23 +1,25 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import { 
-    Box,
-    Drawer as MuiDrawer,
-    AppBar as MuiAppBar,
-    Toolbar,
-    List,
-    CssBaseline,
-    Typography,
-    Divider,
-    IconButton,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText
+import { styled } from '@mui/material/styles';
+import {
+  Box,
+  Drawer as MuiDrawer,
+  AppBar as MuiAppBar,
+  Toolbar,
+  List,
+  CssBaseline,
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Avatar,
 } from '@mui/material';
 
 import ImageCard from '../../atoms/ImageCard/ImageCard';
-import { CaretDoubleLeft, CaretDoubleRight, Globe } from 'phosphor-react';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
+import { CaretDoubleLeft, CaretDoubleRight, Globe, Storefront,  BellSimple} from 'phosphor-react';
 
 const imageLogo = './img/Logo.png';
 
@@ -56,7 +58,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
+  zIndex: theme.zIndex.drawer,
+  width: `calc(100% - ${theme.mixins.toolbar.minHeight}px)`,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -85,11 +88,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       ...closedMixin(theme),
       '& .MuiDrawer-paper': closedMixin(theme),
     }),
-  }),
-);
+  }));
 
 export default function MiniDrawer() {
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -105,29 +106,27 @@ export default function MiniDrawer() {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <ImageCard imgDir={imageLogo} size={25} />
-            <CaretDoubleRight size={18} />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <SearchBar />
+          </Box>
+          <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Storefront size={16} />
+            <BellSimple size={16} />
+            <Divider orientation="vertical" />
+            <Typography variant='body1'>Nombre</Typography>
+            <Avatar alt="Remy Sharp" src="" />
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
             <ImageCard imgDir={imageLogo} size={25} />
-            <CaretDoubleLeft size={18} />
+            {
+              open ? <CaretDoubleLeft size={18} />
+                :
+                <CaretDoubleRight size={18} />
+            }
           </IconButton>
         </DrawerHeader>
         <Divider />
@@ -198,6 +197,48 @@ export default function MiniDrawer() {
           sapien faucibus et molestie ac.
         </Typography>
         <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+          sapien faucibus et molestie ac.
+        </Typography>
+        <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+          sapien faucibus et molestie ac.
+        </Typography>
+        <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+          sapien faucibus et molestie ac.
+        </Typography>
+        <Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
           eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
           neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
@@ -214,3 +255,20 @@ export default function MiniDrawer() {
     </Box>
   );
 }
+
+
+/* 
+<IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <ImageCard imgDir={imageLogo} size={25} />
+            <CaretDoubleRight size={18} />
+          </IconButton>
+*/
