@@ -41,6 +41,7 @@ function OrganizationChar() {
     const [active1, setActive1] = useState(false);
     const [active2, setActive2] = useState(false);
     const [active3, setActive3] = useState(false);
+    const [selectPrincipal, setSelectedPrincipa] = useState(false);
 
     return (
         <Container>
@@ -50,26 +51,27 @@ function OrganizationChar() {
             </Box>
 
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <div style={{ display: "flex", gap: "20px" }}>
+                <div style={{ display: "flex", width:"40%", gap: "20px" }}>
                     <SearchBar />
                     <Filters />
                 </div>
                 <div>
-                    <ButtonText text={"Create Organizational Unit"} />
+                    <ButtonText color={"green"} text={"Create Organizational Unit"} />
                 </div>
             </Box>
 
             <Box sx={{
-                mt: 5,
+                mt: 4,
                 p: 1,
                 border: 1,
+                borderColor: "#C4C8CF",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
             }}>
                 <Box sx={{ mb: 2 }}>
-                    <ButtonBase>
-                        <PrincipalCard img={"./img/logo1.png"} title={"BluePixel"} units={130} users={325} />
+                    <ButtonBase onClick={() => {setSelectedPrincipa(true)}}>
+                        <PrincipalCard img={"./img/logo1.png"} title={"BluePixel"} units={130} users={325} selected={selectPrincipal} />
                     </ButtonBase>
                 </Box>
                 <Box sx={{ mb: 2, display: "flex", gap: "20px" }}>

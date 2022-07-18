@@ -4,12 +4,12 @@ import ImageCard from "../../atoms/ImageCard/ImageCard";
 
 import './PrincipalCard.css';
 
-function PrincipalCard({ img, title, units, users }) {
+function PrincipalCard({ img, title, units, users, selected }) {
     return (
-        <Card className="card">
+        <Card className="card" sx={selected ? {borderColor:'#ED5E2E'} : { borderColor:'#ABB0B9' }}>
             <div className="content">
                 <ImageCard imgDir={img} size={48} />
-                <Typography variant="body1">{title}</Typography>
+                <Typography variant="body2">{title}</Typography>
             </div>
             <Divider variant="middle"/>
             <div className="content">
@@ -43,7 +43,11 @@ PrincipalCard.propTypes = {
     /**
      * Número de users
      */
-    users: PropTypes.number
+    users: PropTypes.number,
+    /**
+     * Booleano para saber si está seleccionado
+     */
+    selected: PropTypes.bool
 };
 
 export default PrincipalCard;

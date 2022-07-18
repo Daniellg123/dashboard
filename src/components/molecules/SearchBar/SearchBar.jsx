@@ -4,14 +4,15 @@ import { MagnifyingGlass } from "phosphor-react";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    borderColor: theme.palette.gray.gray40,
+    backgroundColor: alpha(theme.palette.gray.main, 0.15),
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: alpha(theme.palette.gray.main, 0.25),
     },
-    width: '100%',
+    width: '50%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
-        width: 'auto',
+        width: '50%',
     },
 }));
 

@@ -140,27 +140,28 @@ function NavigationBar({ children }) {
 
       <AppBar position="fixed" open={open} color="secondary">
         <Toolbar>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1 }}>
             <SearchBar />
           </Box>
           <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Storefront size={16} />
-            <BellSimple size={16} />
+            <Storefront size={24} color="#9399A2"/>
+            <BellSimple size={24} color="#9399A2"/>
             <Divider orientation="vertical" />
-            <Typography variant='body1'>Nombre</Typography>
-            <Avatar alt="Remy Sharp" src="" />
+            <Typography variant='body1'>¡Hola Nombre!</Typography>
+            <Avatar alt="Remy Sharp" src="./img/Avatar.png" sx={{ border: '1px', borderColor: '#ED5E2E' }} />
+            <CaretDown size={24} color="#ED5E2E"/>
           </Box>
         </Toolbar>
       </AppBar>
 
-      <Drawer variant="permanent" open={open} >
+      <Drawer variant="permanent" open={open} PaperProps={{ sx: { backgroundColor: "#151515"}}} >
         <DrawerHeader>
           <IconButton onClick={open ? handleDrawerClose : handleDrawerOpen}>
             <ImageCard imgDir={imageLogo} size={25} />
             {
-              open ? <CaretDoubleLeft size={18} />
+              open ? <CaretDoubleLeft size={18} color="#ffffff" />
                 :
-                <CaretDoubleRight size={18} />
+                <CaretDoubleRight size={18} color="#ffffff" />
             }
           </IconButton>
         </DrawerHeader>
@@ -184,7 +185,7 @@ function NavigationBar({ children }) {
                     justifyContent: 'center',
                   }}
                 >
-                  <Globe size={18} />
+                  <Globe size={18} color='#ffffff' />
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -199,7 +200,7 @@ function NavigationBar({ children }) {
           startIcon={<SidebarSimple size={20} color="#ed5e2e" />}
           endIcon={
             open ?
-              openMenu ? <CaretUp size={12} /> : <CaretDown size={12} />
+              openMenu ? <CaretUp size={12} color="#FFFFFF"/> : <CaretDown size={12} color="#ffffff" />
               :
               ''
           }
@@ -224,7 +225,7 @@ function NavigationBar({ children }) {
                       justifyContent: 'center',
                     }}
                   >
-                    <Globe size={18} />
+                    <Globe size={18} color='#ffffff'/>
                   </ListItemIcon>
                   <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
@@ -254,7 +255,7 @@ function NavigationBar({ children }) {
                       justifyContent: 'center',
                     }}
                   >
-                    <Globe size={18} />
+                    <Globe size={18} color='#ffffff' />
                   </ListItemIcon>
                   <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
@@ -265,6 +266,7 @@ function NavigationBar({ children }) {
               onClick={openMenu ? handleCloseMenu : handleOpenMenu}
               startIcon={<Flag size={20} />}
               endIcon={<CaretDown size={12} />}
+              color='gray'
             >
               {open ? <Typography variant='button'>Business Unit</Typography> : ''}
             </Button>
@@ -284,7 +286,7 @@ function NavigationBar({ children }) {
                   justifyContent: 'center',
                 }}
               >
-                <Globe size={18} />
+                <Globe size={18} color='#ffffff'/>
               </ListItemIcon>
               <ListItemText primary='Settings' sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
