@@ -1,5 +1,5 @@
 import { Link } from "@mui/material";
-import Container from "../templates/Container";
+import Container from "../components/templates/Container";
 
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function OrganizationalUnits() {
     const navigate = useNavigate();
     return (
         <Container>
-            <Link onClick={() => {navigate('/organizationchar')}}>OrganizationChar</Link>
+            <Link onClick={() => {navigate('/orgchar')}}>OrganizationChar</Link>
         </Container>
     );
 };

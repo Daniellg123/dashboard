@@ -1,14 +1,15 @@
-import { Typography, Box, ButtonBase, Tabs, Tab } from "@mui/material";
-import Container from "../templates/Container";
-import SearchBar from "../molecules/SearchBar/SearchBar";
-import Filters from "../molecules/Filters/Filters"
-import ButtonText from "../molecules/ButtonText/ButtonText";
+import { Typography, Box, ButtonBase } from "@mui/material";
+import Container from "../components/templates/Container";
+import SearchBar from "../components/molecules/SearchBar/SearchBar";
+import Filters from "../components/molecules/Filters/Filters"
+import ButtonText from "../components/molecules/ButtonText/ButtonText";
 
-import PrincipalCard from "../molecules/PrincipalCard/PrincipalCard";
-import ImageCard from "../atoms/ImageCard/ImageCard";
-import SimpleCard from "../molecules/SImpleCard/SimpleCard";
+import PrincipalCard from "../components/molecules/PrincipalCard/PrincipalCard";
+import ImageCard from "../components/atoms/ImageCard/ImageCard";
+import SimpleCard from "../components/molecules/SImpleCard/SimpleCard";
+import SecondaryCard from "../components/molecules/SecondaryCard/SecondaryCard";
 
-import { useLocation } from 'react-router-dom';
+import { useState } from "react";
 
 const data = {
     title: "BluePixel",
@@ -37,20 +38,25 @@ const data = {
 };
 
 function OrganizationChar() {
-    const location = useLocation();
+    const [active1, setActive1] = useState(false);
+    const [active2, setActive2] = useState(false);
+    const [active3, setActive3] = useState(false);
+
     return (
         <Container>
+
             <Box>
-                {location.pathname}
-                <Typography variant="subtitle1">Organization Chart</Typography>
+                <Typography variant="subtitle2">Organization Chart</Typography>
             </Box>
 
-            <Box sx={{ flexGrow: 1, display: "flex", gap: 10 }}>
-                <SearchBar />
-                <Filters />
-                <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", gap: "20px" }}>
+                    <SearchBar />
+                    <Filters />
+                </div>
+                <div>
                     <ButtonText text={"Create Organizational Unit"} />
-                </Box>
+                </div>
             </Box>
 
             <Box sx={{
@@ -66,26 +72,90 @@ function OrganizationChar() {
                         <PrincipalCard img={"./img/logo1.png"} title={"BluePixel"} units={130} users={325} />
                     </ButtonBase>
                 </Box>
-                <Box sx={{ mb: 2 }}>
-                    <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                <Box sx={{ mb: 2, display: "flex", gap: "20px" }}>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
                 </Box>
-                <Box sx={{ mb: 2 }}>
-                <Tabs
-                        value={()=>{}}
-                        onChange={()=>{}}
-                        variant="scrollable"
-                        scrollButtons="auto"
-                        aria-label="scrollable auto tabs example"
-                    >
-                        <Tab label="Item One" />
-                        <Tab label="Item Two" />
-                        <Tab label="Item Three" />
-                        <Tab label="Item Four" />
-                        <Tab label="Item Five" />
-                        <Tab label="Item Six" />
-                        <Tab label="Item Seven" />
-                    </Tabs>
-                    <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                <Box sx={{ mb: 2, overflow: "auto", display: "flex", gap: "10px" }}>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                </Box>
+                <Box sx={{ mb: 2, display: "flex", gap: "10px" }}>
+                    <ButtonBase onClick={() => { active1 ? setActive1(false) : setActive1(true) }}>
+                        <SecondaryCard img={"./img/logo1.png"} imgP={"./img/p.png"} title={"DiseñoUX"} users={123} units={43} name={"Daniel"} position={"Encargado"} selected={active1} />
+                    </ButtonBase>
+                    <ButtonBase onClick={() => { active2 ? setActive2(false) : setActive2(true) }}>
+                        <SecondaryCard img={"./img/logo1.png"} imgP={"./img/p.png"} title={"DiseñoUX"} users={123} units={43} name={"Daniel"} position={"Encargado"} selected={active2} />
+                    </ButtonBase>
+                    <ButtonBase onClick={() => { active3 ? setActive3(false) : setActive3(true) }}>
+                        <SecondaryCard img={"./img/logo1.png"} imgP={"./img/p.png"} title={"DiseñoUX"} users={123} units={43} name={"Daniel"} position={"Encargado"} selected={active3} />
+                    </ButtonBase>
+                </Box>
+                <Box sx={{ mb: 2, overflow: "auto", display: "flex", gap: "10px" }}>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <SimpleCard title={"BluePixel"} img={"./img/logo1.png"} />
+                    </ButtonBase>
+                </Box>
+                <Box sx={{ mb: 2, display: "flex", gap: "20px" }}>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
+                    <ButtonBase>
+                        <ImageCard imgDir={"./img/logo1.png"} size={48} />
+                    </ButtonBase>
                 </Box>
             </Box>
         </Container>

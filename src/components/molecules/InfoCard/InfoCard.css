@@ -1,0 +1,23 @@
+.infoCard {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 12px;
+    padding: 12px;
+    gap: 30%;
+
+    position: static;
+    width: 387px;
+    height: 42px;
+
+    /* Green/80 Primary */
+    border: 1px solid #26A798;
+}
+
+.infoSub {
+    display: flex;
+    flex-direction: row;
+}

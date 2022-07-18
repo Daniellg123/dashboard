@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-import Container from "../templates/Container";
+import Container from "../components/templates/Container";
 
 function Home() {
     return (
