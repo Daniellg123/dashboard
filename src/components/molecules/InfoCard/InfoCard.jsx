@@ -3,6 +3,10 @@ import { Card, Divider, Typography } from "@mui/material";
 
 import "./InfoCard.css";
 
+/**
+ * Componente para mostrar la información de una Card
+ */
+
 function InfoCard({ units, users }) {
     return (
         <Card className="infoCard">

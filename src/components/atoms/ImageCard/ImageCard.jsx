@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { CardMedia } from '@mui/material';
 
+/**
+ * Componente para mostrar una imagen dentro de una card
+ */
+
 import './ImageCard.css';
 
 function ImageCard({ imgDir, size }) {

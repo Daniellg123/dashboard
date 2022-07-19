@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { Card, Typography } from "@mui/material";
 import ImageCard from "../../atoms/ImageCard/ImageCard";
 
-import './styles.css';;
+import './styles.css';
+
+/**
+ * Componente para mostrar solo la imagen y el titulo
+ */
 
 function SimpleCard({ title, img }) {
     return (

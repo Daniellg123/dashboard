@@ -17,3 +17,8 @@ it('Units is equal to prop units', () => {
     const component = render(<InfoCard {...props} units={14}/>)
     component.getByText('14 Units');
 });
+
+it('Units is equal to prop users', () => {
+    const component = render(<InfoCard {...props} users={14}/>)
+    component.getByText('14 Users');
+});

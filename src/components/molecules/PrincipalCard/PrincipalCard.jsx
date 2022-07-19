@@ -4,6 +4,10 @@ import ImageCard from "../../atoms/ImageCard/ImageCard";
 
 import './PrincipalCard.css';
 
+/**
+ * Componente para la información principal
+ */
+
 function PrincipalCard({ img, title, units, users, selected }) {
     return (
         <Card className="card" sx={selected ? {borderColor:'#ED5E2E'} : { borderColor:'#ABB0B9' }}>

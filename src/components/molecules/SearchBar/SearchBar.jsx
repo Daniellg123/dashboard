@@ -47,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
  * Componente de busqueda de Material UI
  */
 
-function SearchBar() {
+function SearchBar({...props}) {
     return (
         <Search>
             <SearchIconWrapper>

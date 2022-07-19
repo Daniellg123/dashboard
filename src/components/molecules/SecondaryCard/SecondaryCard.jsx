@@ -6,6 +6,10 @@ import PrincipalCard from '../PrincipalCard/PrincipalCard';
 
 import './SecondaryCard.css';
 
+/**
+ * Componente para mostrar más información
+ */
+
 function SecondaryCard({ img, imgP, title, users, units, name, position, selected }) {
     return (
         <>

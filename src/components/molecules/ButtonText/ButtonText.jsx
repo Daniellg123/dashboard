@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { Button } from '@mui/material';
 
+/**
+    * Componente de un botón con texto
+*/
+
 function ButtonText({ text, color, ...props }) {
     return (
         <Button variant='contained' color={color} {...props}>
